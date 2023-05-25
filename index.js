@@ -18,9 +18,19 @@ async function execute() {
         }
     );
 
+    if ((await response.text()) === "Invalid key.") {
+        alert("Invalid key.");
+        return;
+    }
+
     document.getElementById("message").value = "";
 
     if (!response.ok) {
-        alert("THERE WAS AN ERROR");
+        alert(
+            "An error has occured. Code " +
+                response.status +
+                "\n\n" +
+                response.statusText
+        );
     }
 }
