@@ -3,20 +3,17 @@ async function execute() {
     const channel = document.getElementById("channel-id").value;
     const message = document.getElementById("message").value;
 
-    const response = await fetch(
-        "https://hunter-bot-production.up.railway.app/message",
-        {
-            body: JSON.stringify({
-                channelID: channel,
-                message,
-                key,
-            }),
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }
-    );
+    const response = await fetch("https://hunter-bot.drewh.net/message", {
+        body: JSON.stringify({
+            channelID: channel,
+            message,
+            key,
+        }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
 
     if ((await response.text()) === "Invalid key.") {
         alert("Invalid key.");
