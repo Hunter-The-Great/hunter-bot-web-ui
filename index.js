@@ -15,7 +15,7 @@ async function execute() {
         },
     });
 
-    if ((await response.text()) === "Invalid key.") {
+    if ((await response.status()) === "Invalid key.") {
         alert("Invalid key.");
         return;
     }
