@@ -15,10 +15,12 @@ async function execute() {
         },
     });
 
-    const body = await response.json();
-
     if (!response.ok) {
-        alert(`Error code ${response.status}\n\n${body.statusText}`);
+        alert(
+            `Error code ${response.status}\n\n${
+                (await response.json()).statusText
+            }`
+        );
         return;
     }
 
